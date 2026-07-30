@@ -374,39 +374,6 @@ h3 {
   line-height: 1.35;
 }
 
-.intro-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--line);
-  background: var(--paper-2);
-}
-
-.intro-item {
-  min-height: 132px;
-  padding: clamp(22px, 3vw, 34px) clamp(20px, 3vw, 44px);
-  border-right: 1px solid var(--line);
-}
-
-.intro-item:last-child {
-  border-right: 0;
-}
-
-.intro-item span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 0.78rem;
-  font-weight: 760;
-  text-transform: uppercase;
-}
-
-.intro-item strong {
-  display: block;
-  max-width: 26ch;
-  font-size: clamp(1.05rem, 1.6vw, 1.45rem);
-  line-height: 1.25;
-}
-
 .section {
   padding: clamp(72px, 9vw, 124px) clamp(20px, 5vw, 72px);
 }
@@ -946,7 +913,6 @@ h3 {
   .hero-content,
   .hero-facts,
   .future-focus-panel,
-  .intro-strip,
   .story-grid,
   .story-card.future,
   .focus-grid,
@@ -993,18 +959,12 @@ h3 {
     grid-row: auto;
   }
 
-  .hero-facts div,
-  .intro-item {
+  .hero-facts div {
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
 
-  .intro-item {
-    border-bottom-color: var(--line);
-  }
-
-  .hero-facts div:last-child,
-  .intro-item:last-child {
+  .hero-facts div:last-child {
     border-bottom: 0;
   }
 
