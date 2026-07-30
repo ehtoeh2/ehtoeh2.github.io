@@ -394,6 +394,10 @@ h3 {
   background: var(--paper);
 }
 
+.story-section {
+  padding-top: clamp(40px, 6vw, 80px);
+}
+
 .story-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr);
