@@ -329,6 +329,59 @@ h3 {
   color: var(--muted);
 }
 
+.academic-summary {
+  padding-block: 22px 20px;
+}
+
+.academic-summary .profile-status {
+  margin-bottom: 8px;
+}
+
+.profile-academics {
+  display: grid;
+}
+
+.profile-degree {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+
+.profile-degree:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.profile-degree:last-child {
+  padding-bottom: 0;
+}
+
+.profile-degree strong {
+  margin-bottom: 3px;
+  font-size: 0.96rem;
+  line-height: 1.28;
+}
+
+.profile-school,
+.profile-gpa {
+  display: block;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.42;
+}
+
+.profile-gpa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+  margin-top: 3px;
+  color: var(--ink);
+}
+
+.profile-gpa b {
+  color: var(--red-dark);
+  font-weight: 850;
+}
+
 .hero-facts {
   position: relative;
   align-self: end;
@@ -400,8 +453,9 @@ h3 {
 
 .story-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) clamp(76px, 8vw, 118px) minmax(0, 1.22fr);
+  column-gap: 0;
+  row-gap: 18px;
 }
 
 .story-card,
@@ -420,9 +474,71 @@ h3 {
 }
 
 .story-card.emphasized {
-  background: var(--deep-2);
-  color: var(--ivory);
-  box-shadow: var(--shadow);
+  position: relative;
+  border-color: rgba(15, 139, 141, 0.34);
+  background: #e8efeb;
+  color: var(--ink);
+  box-shadow:
+    inset 0 4px 0 var(--teal),
+    0 22px 58px rgba(10, 93, 97, 0.13);
+}
+
+.story-card.emphasized h3 {
+  font-size: clamp(1.18rem, 1.75vw, 1.55rem);
+}
+
+.story-transition {
+  align-self: start;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: clamp(72px, 7vw, 94px);
+  padding-inline: 14px;
+  color: var(--teal-dark);
+}
+
+.story-transition-label {
+  font-size: 0.68rem;
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.story-transition-line {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.72;
+}
+
+.story-transition-line::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: var(--paper);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.story-transition-line::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  content: "";
+  transform: translate(1px, -50%) rotate(-45deg);
 }
 
 .story-card.future {
@@ -454,7 +570,8 @@ h3 {
 }
 
 .story-card.emphasized .story-index {
-  color: #8be0dc;
+  color: var(--teal-dark);
+  font-size: 0.84rem;
 }
 
 .story-card p {
@@ -462,7 +579,7 @@ h3 {
 }
 
 .story-card.emphasized p {
-  color: rgba(255, 250, 240, 0.72);
+  color: #505a56;
 }
 
 .story-question {
@@ -474,7 +591,7 @@ h3 {
 }
 
 .story-card.emphasized .story-question {
-  color: #e9d4a7 !important;
+  color: var(--teal-dark) !important;
 }
 
 .research-section,
@@ -956,6 +1073,35 @@ h3 {
     line-height: 1.42;
   }
 
+  .academic-summary {
+    padding: 16px;
+  }
+
+  .academic-summary .profile-status {
+    margin-bottom: 5px;
+  }
+
+  .profile-degree {
+    padding-block: 10px;
+  }
+
+  .profile-degree strong {
+    margin-bottom: 2px;
+    font-size: 0.84rem;
+    line-height: 1.24;
+  }
+
+  .profile-school,
+  .profile-gpa {
+    font-size: 0.71rem;
+    line-height: 1.35;
+  }
+
+  .profile-gpa {
+    gap: 0 8px;
+    margin-top: 2px;
+  }
+
   .story-card.future .story-index,
   .story-card.future h3,
   .story-card.future p {
@@ -974,6 +1120,42 @@ h3 {
 
   .story-card {
     min-height: auto;
+  }
+
+  .story-grid {
+    row-gap: 0;
+  }
+
+  .story-transition {
+    width: 100%;
+    min-height: 102px;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 14px 0 12px;
+  }
+
+  .story-transition-line {
+    width: 1px;
+    height: 46px;
+  }
+
+  .story-transition-line::before {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .story-transition-line::after {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 1px) rotate(45deg);
+  }
+
+  .story-card.future {
+    margin-top: 18px;
   }
 
   .future-focus-copy h3 {
