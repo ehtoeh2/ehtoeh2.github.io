@@ -601,7 +601,8 @@ h3 {
 }
 
 .story-card.emphasized .story-reflection p {
-  color: #505a56;
+  color: var(--teal-dark);
+  font-weight: 760;
 }
 
 .story-reflection p:last-child {
