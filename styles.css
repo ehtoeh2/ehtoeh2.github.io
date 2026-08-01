@@ -580,6 +580,35 @@ h3 {
   padding: 26px;
 }
 
+.focus-card--foundation {
+  border-color: rgba(159, 63, 55, 0.2);
+  background: #f3ede3;
+}
+
+.focus-card--foundation .focus-label {
+  color: var(--red-dark);
+}
+
+.focus-card--current {
+  border-color: rgba(74, 105, 103, 0.25);
+  background: #edf1ef;
+  box-shadow: inset 0 3px 0 rgba(74, 105, 103, 0.42);
+}
+
+.focus-card--current .focus-label {
+  color: #496b69;
+}
+
+.focus-card--future {
+  border-color: rgba(15, 139, 141, 0.34);
+  background: #e3eee8;
+  box-shadow: inset 0 4px 0 var(--teal);
+}
+
+.focus-card--future .focus-label {
+  color: var(--teal-dark);
+}
+
 .focus-label {
   display: inline-block;
   margin-bottom: 26px;
