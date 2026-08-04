@@ -2,8 +2,6 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const navToggleLabel = navToggle?.querySelector(".sr-only");
-const copyButton = document.querySelector("[data-copy-email]");
-const copyStatus = document.querySelector("[data-copy-status]");
 
 const updateHeader = () => {
   if (!header) return;
@@ -39,19 +37,4 @@ document.addEventListener("keydown", (event) => {
 
 window.addEventListener("resize", () => {
   if (window.innerWidth > 860) setNavigationOpen(false);
-});
-
-copyButton?.addEventListener("click", async () => {
-  const email = "ehtoeh2@korea.ac.kr";
-
-  try {
-    await navigator.clipboard.writeText(email);
-    if (copyStatus) copyStatus.textContent = "Email copied.";
-  } catch {
-    if (copyStatus) copyStatus.textContent = email;
-  }
-
-  window.setTimeout(() => {
-    if (copyStatus) copyStatus.textContent = "";
-  }, 2600);
 });
