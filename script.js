@@ -1,5 +1,7 @@
 const header = document.querySelector("[data-header]");
-const navLinks = [...document.querySelectorAll(".nav-links a")];
+const nav = document.querySelector("[data-nav]");
+const navToggle = document.querySelector("[data-nav-toggle]");
+const navToggleLabel = navToggle?.querySelector(".sr-only");
 const copyButton = document.querySelector("[data-copy-email]");
 const copyStatus = document.querySelector("[data-copy-status]");
 
@@ -8,35 +10,36 @@ const updateHeader = () => {
   header.classList.toggle("scrolled", window.scrollY > 24);
 };
 
+const setNavigationOpen = (open) => {
+  if (!nav || !navToggle) return;
+
+  nav.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  document.body.classList.toggle("menu-open", open);
+
+  if (navToggleLabel) {
+    navToggleLabel.textContent = open ? "Close navigation" : "Open navigation";
+  }
+};
+
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 
-const sectionMap = navLinks
-  .map((link) => {
-    const id = link.getAttribute("href");
-    return id && id.startsWith("#") ? [link, document.querySelector(id)] : null;
-  })
-  .filter(Boolean);
+navToggle?.addEventListener("click", () => {
+  setNavigationOpen(navToggle.getAttribute("aria-expanded") !== "true");
+});
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+nav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => setNavigationOpen(false));
+});
 
-    if (!visible) return;
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setNavigationOpen(false);
+});
 
-    navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
-    });
-  },
-  {
-    rootMargin: "-30% 0px -55% 0px",
-    threshold: [0.15, 0.35, 0.55],
-  },
-);
-
-sectionMap.forEach(([, section]) => observer.observe(section));
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 860) setNavigationOpen(false);
+});
 
 copyButton?.addEventListener("click", async () => {
   const email = "ehtoeh2@korea.ac.kr";
