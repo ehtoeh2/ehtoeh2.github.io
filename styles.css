@@ -2396,9 +2396,10 @@ h3 {
 
 .research-project-item {
   display: grid;
-  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
-  align-items: start;
-  gap: clamp(38px, 6vw, 82px);
+  grid-template-columns: minmax(340px, 0.94fr) minmax(0, 1.06fr);
+  align-items: stretch;
+  column-gap: clamp(38px, 5vw, 68px);
+  row-gap: 24px;
   padding: 50px 0;
   border-bottom: 1px solid rgba(22, 23, 23, 0.18);
 }
@@ -2420,7 +2421,7 @@ h3 {
 }
 
 .research-project-copy {
-  max-width: 650px;
+  max-width: none;
 }
 
 .research-project-label {
@@ -2460,12 +2461,23 @@ h3 {
   margin: 0 0 1em;
 }
 
+.research-program--kyunghee .research-project-narrative {
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
 .research-publication-record,
 .research-project-status {
-  margin-top: 24px;
+  margin-top: 0;
   padding: 18px 20px;
   border-left: 3px solid var(--teal-dark);
   background: rgba(255, 255, 255, 0.5);
+}
+
+.research-project-item > .research-publication-record,
+.research-project-item > .research-project-status {
+  grid-column: 1 / -1;
 }
 
 .research-program--kist .research-publication-record,
@@ -2566,6 +2578,11 @@ h3 {
   .research-project-item {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .research-project-item > .research-publication-record,
+  .research-project-item > .research-project-status {
+    grid-column: 1;
   }
 
   .research-project-visual {
@@ -3176,6 +3193,27 @@ h3 {
 .research-project-gallery .carousel-slide img[role="button"]:focus-visible {
   outline: 3px solid rgba(255, 250, 240, 0.9);
   outline-offset: -5px;
+}
+
+@media (min-width: 861px) {
+  .research-project-copy {
+    min-height: clamp(350px, 30vw, 430px);
+  }
+
+  .research-project-gallery {
+    display: flex;
+    height: 100%;
+    min-height: clamp(350px, 30vw, 430px);
+    flex-direction: column;
+  }
+
+  .research-project-gallery .carousel-viewport,
+  .research-project-gallery--figure .carousel-viewport,
+  .research-project-gallery--square .carousel-viewport {
+    flex: 1 1 auto;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
 }
 
 body.lightbox-open {
