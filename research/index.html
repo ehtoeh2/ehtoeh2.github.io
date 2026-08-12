@@ -8,7 +8,7 @@
       name="description"
       content="Dae-Hwan Kim studies skeletal muscle biology by connecting bioinformatics with in vitro and in vivo experimentation."
     >
-    <link rel="stylesheet" href="../styles.css?v=20260809-research-width2">
+    <link rel="stylesheet" href="../styles.css?v=20260812-research-lightbox1">
   </head>
   <body class="page-research">
     <header class="site-header" data-header>
@@ -29,8 +29,8 @@
       <nav id="primary-navigation" class="nav-links" aria-label="Primary navigation" data-nav>
         <a href="../">Home</a>
         <a href="../research/" aria-current="page">Research</a>
-        <a href="../history/">History</a>
         <a href="../publications/">Publications</a>
+        <a href="../beyond/">Beyond the Lab</a>
         <a href="../#contact">Contact</a>
       </nav>
     </header>
@@ -123,7 +123,69 @@
 
           <div class="research-project-list">
             <article class="research-project-item">
-              <div class="research-project-visual" aria-hidden="true"></div>
+              <figure
+                class="research-project-visual research-project-gallery research-project-gallery--figure image-carousel"
+                data-carousel
+                tabindex="0"
+                aria-label="Cancer cachexia analysis figures"
+              >
+                <div class="carousel-viewport">
+                  <div
+                    class="carousel-slide carousel-slide--contain is-active"
+                    data-carousel-slide
+                    aria-hidden="false"
+                  >
+                    <img
+                      src="../assets/research-cachexia-biomarker-overview.jpg"
+                      alt="Cancer cachexia biomarker discovery workflow from multi-omics analysis to clinical application"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div
+                    class="carousel-slide carousel-slide--contain carousel-slide--left-inset"
+                    data-carousel-slide
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="../assets/research-cachexia-sn-rnaseq.png"
+                      alt="Composite figure summarizing single-nucleus RNA-seq analysis of cachectic skeletal muscle datasets"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div
+                    class="carousel-slide carousel-slide--contain carousel-slide--left-inset"
+                    data-carousel-slide
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="../assets/research-cachexia-proteomics.png"
+                      alt="Composite figure summarizing LC-MS/MS proteomics analysis across cachexia models"
+                      loading="lazy"
+                    >
+                  </div>
+                  <button
+                    class="carousel-control carousel-control--previous"
+                    type="button"
+                    data-carousel-previous
+                    aria-label="Previous cancer cachexia analysis figure"
+                  >
+                    <span aria-hidden="true">&#8592;</span>
+                  </button>
+                  <button
+                    class="carousel-control carousel-control--next"
+                    type="button"
+                    data-carousel-next
+                    aria-label="Next cancer cachexia analysis figure"
+                  >
+                    <span aria-hidden="true">&#8594;</span>
+                  </button>
+                  <div class="carousel-status" aria-live="polite">
+                    <span data-carousel-current>1</span>
+                    <span aria-hidden="true">/</span>
+                    <span data-carousel-total>3</span>
+                  </div>
+                </div>
+              </figure>
               <div class="research-project-copy">
                 <p class="research-project-label">Project 01 &middot; Skeletal Muscle</p>
                 <h3>Cancer Cachexia Biomarker Discovery</h3>
@@ -136,7 +198,58 @@
             </article>
 
             <article class="research-project-item">
-              <div class="research-project-visual" aria-hidden="true"></div>
+              <figure
+                class="research-project-visual research-project-gallery research-project-gallery--square image-carousel"
+                data-carousel
+                tabindex="0"
+                aria-label="Muscle stem cell co-culture microscopy images"
+              >
+                <div class="carousel-viewport">
+                  <div
+                    class="carousel-slide carousel-slide--contain is-active"
+                    data-carousel-slide
+                    aria-hidden="false"
+                  >
+                    <img
+                      src="../assets/research-musc-coculture.png"
+                      alt="Fluorescence microscopy image from a muscle stem cell co-culture experiment"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div
+                    class="carousel-slide carousel-slide--contain"
+                    data-carousel-slide
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="../assets/research-musc-fap-coculture.png"
+                      alt="Fluorescence microscopy image from a drug-treated muscle stem cell and fibro-adipogenic progenitor co-culture experiment"
+                      loading="lazy"
+                    >
+                  </div>
+                  <button
+                    class="carousel-control carousel-control--previous"
+                    type="button"
+                    data-carousel-previous
+                    aria-label="Previous co-culture microscopy image"
+                  >
+                    <span aria-hidden="true">&#8592;</span>
+                  </button>
+                  <button
+                    class="carousel-control carousel-control--next"
+                    type="button"
+                    data-carousel-next
+                    aria-label="Next co-culture microscopy image"
+                  >
+                    <span aria-hidden="true">&#8594;</span>
+                  </button>
+                  <div class="carousel-status" aria-live="polite">
+                    <span data-carousel-current>1</span>
+                    <span aria-hidden="true">/</span>
+                    <span data-carousel-total>2</span>
+                  </div>
+                </div>
+              </figure>
               <div class="research-project-copy">
                 <p class="research-project-label">Project 02 &middot; Muscle Microenvironment</p>
                 <h3>Drug-Induced Remodeling of the Skeletal Muscle Microenvironment</h3>
@@ -149,7 +262,77 @@
             </article>
 
             <article class="research-project-item">
-              <div class="research-project-visual" aria-hidden="true"></div>
+              <figure
+                class="research-project-visual research-project-gallery image-carousel"
+                data-carousel
+                tabindex="0"
+                aria-label="3D skeletal muscle microscopy images"
+              >
+                <div class="carousel-viewport">
+                  <div
+                    class="carousel-slide carousel-slide--contain is-active"
+                    data-carousel-slide
+                    data-caption="MYH3 channel"
+                    aria-hidden="false"
+                  >
+                    <img
+                      src="../assets/research-muscle-chip-myh3.png"
+                      alt="Fluorescence microscopy image of MYH3-positive 3D skeletal muscle tissue"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div
+                    class="carousel-slide carousel-slide--contain"
+                    data-carousel-slide
+                    data-caption="Merged image"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="../assets/research-muscle-chip-merged.png"
+                      alt="Merged fluorescence microscopy image of 3D skeletal muscle tissue"
+                      loading="lazy"
+                    >
+                  </div>
+                  <button
+                    class="carousel-control carousel-control--previous"
+                    type="button"
+                    data-carousel-previous
+                    aria-label="Previous skeletal muscle image"
+                  >
+                    <span aria-hidden="true">&#8592;</span>
+                  </button>
+                  <button
+                    class="carousel-control carousel-control--next"
+                    type="button"
+                    data-carousel-next
+                    aria-label="Next skeletal muscle image"
+                  >
+                    <span aria-hidden="true">&#8594;</span>
+                  </button>
+                  <div class="research-carousel-label" aria-live="polite">
+                    <span data-carousel-caption>MYH3 channel</span>
+                  </div>
+                  <div class="carousel-status" aria-live="polite">
+                    <span data-carousel-current>1</span>
+                    <span aria-hidden="true">/</span>
+                    <span data-carousel-total>2</span>
+                  </div>
+                </div>
+                <figcaption class="research-marker-legends" aria-live="polite">
+                  <div class="research-marker-legend" data-carousel-panel aria-hidden="false">
+                    <span class="research-marker research-marker--red">MYH3</span>
+                  </div>
+                  <div
+                    class="research-marker-legend"
+                    data-carousel-panel
+                    aria-hidden="true"
+                    hidden
+                  >
+                    <span class="research-marker research-marker--blue">DAPI</span>
+                    <span class="research-marker research-marker--red">MYH3</span>
+                  </div>
+                </figcaption>
+              </figure>
               <div class="research-project-copy">
                 <p class="research-project-label">Project 03 &middot; 3D Skeletal Muscle</p>
                 <h3>3D Skeletal Muscle-on-Chip System</h3>
@@ -162,7 +345,81 @@
             </article>
 
             <article class="research-project-item">
-              <div class="research-project-visual" aria-hidden="true"></div>
+              <figure
+                class="research-project-visual research-project-gallery image-carousel"
+                data-carousel
+                tabindex="0"
+                aria-label="Organoid model images"
+              >
+                <div class="carousel-viewport">
+                  <div
+                    class="carousel-slide carousel-slide--contain is-active"
+                    data-carousel-slide
+                    data-caption="Forebrain organoid"
+                    aria-hidden="false"
+                  >
+                    <img
+                      src="../assets/research-forebrain-organoid.jpg"
+                      alt="Immunofluorescence microscopy image of a forebrain organoid"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div
+                    class="carousel-slide carousel-slide--contain"
+                    data-carousel-slide
+                    data-caption="Adrenal organoid"
+                    aria-hidden="true"
+                  >
+                    <img
+                      src="../assets/research-adrenal-organoid.png"
+                      alt="Immunofluorescence microscopy image of an adrenal organoid"
+                      loading="lazy"
+                    >
+                  </div>
+                  <button
+                    class="carousel-control carousel-control--previous"
+                    type="button"
+                    data-carousel-previous
+                    aria-label="Previous organoid image"
+                  >
+                    <span aria-hidden="true">&#8592;</span>
+                  </button>
+                  <button
+                    class="carousel-control carousel-control--next"
+                    type="button"
+                    data-carousel-next
+                    aria-label="Next organoid image"
+                  >
+                    <span aria-hidden="true">&#8594;</span>
+                  </button>
+                  <div class="research-carousel-label" aria-live="polite">
+                    <span data-carousel-caption>Forebrain organoid</span>
+                  </div>
+                  <div class="carousel-status" aria-live="polite">
+                    <span data-carousel-current>1</span>
+                    <span aria-hidden="true">/</span>
+                    <span data-carousel-total>2</span>
+                  </div>
+                </div>
+                <figcaption class="research-marker-legends" aria-live="polite">
+                  <div class="research-marker-legend" data-carousel-panel aria-hidden="false">
+                    <span class="research-marker research-marker--blue">DAPI</span>
+                    <span class="research-marker research-marker--red">FOXG1</span>
+                    <span class="research-marker research-marker--green">PAX6</span>
+                    <span class="research-marker research-marker--orange">CTIP2</span>
+                  </div>
+                  <div
+                    class="research-marker-legend"
+                    data-carousel-panel
+                    aria-hidden="true"
+                    hidden
+                  >
+                    <span class="research-marker research-marker--blue">DAPI</span>
+                    <span class="research-marker research-marker--red">CYP11B2</span>
+                    <span class="research-marker research-marker--green">CYP17A1</span>
+                  </div>
+                </figcaption>
+              </figure>
               <div class="research-project-copy">
                 <p class="research-project-label">Project 04 &middot; Complementary Model</p>
                 <h3>Establishment of Diverse Organoid Models</h3>
@@ -271,16 +528,28 @@
       </section>
     </main>
 
+    <dialog class="image-lightbox" data-image-lightbox aria-label="Expanded research image">
+      <button
+        class="image-lightbox-close"
+        type="button"
+        data-image-lightbox-close
+        aria-label="Close expanded image"
+      >
+        <span aria-hidden="true">&#215;</span>
+      </button>
+      <img class="image-lightbox-image" data-image-lightbox-image alt="">
+    </dialog>
+
     <footer class="site-footer">
       <span>Dae-Hwan Kim | Research</span>
       <nav aria-label="Footer navigation">
         <a href="../">Home</a>
-        <a href="../history/">History</a>
         <a href="../publications/">Publications</a>
+        <a href="../beyond/">Beyond the Lab</a>
         <a href="mailto:ehtoeh2@korea.ac.kr">Email</a>
       </nav>
     </footer>
 
-    <script src="../script.js?v=20260804-contact2"></script>
+    <script src="../script.js?v=20260812-research-lightbox1"></script>
   </body>
 </html>
