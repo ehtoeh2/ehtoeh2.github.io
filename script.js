@@ -162,7 +162,47 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 const imageLightbox = document.querySelector("[data-image-lightbox]");
 const imageLightboxImage = imageLightbox?.querySelector("[data-image-lightbox-image]");
 const imageLightboxClose = imageLightbox?.querySelector("[data-image-lightbox-close]");
+const imageLightboxPrevious = imageLightbox?.querySelector("[data-image-lightbox-previous]");
+const imageLightboxNext = imageLightbox?.querySelector("[data-image-lightbox-next]");
+const imageLightboxCurrent = imageLightbox?.querySelector("[data-image-lightbox-current]");
+const imageLightboxTotal = imageLightbox?.querySelector("[data-image-lightbox-total]");
 let imageLightboxTrigger = null;
+let imageLightboxImages = [];
+let imageLightboxIndex = 0;
+
+const renderImageLightbox = () => {
+  const image = imageLightboxImages[imageLightboxIndex];
+  if (!imageLightbox || !imageLightboxImage || !image) return;
+
+  imageLightboxImage.src = image.currentSrc || image.src;
+  imageLightboxImage.alt = image.alt;
+  imageLightbox.classList.toggle("is-single", imageLightboxImages.length <= 1);
+
+  if (imageLightboxCurrent) imageLightboxCurrent.textContent = String(imageLightboxIndex + 1);
+  if (imageLightboxTotal) imageLightboxTotal.textContent = String(imageLightboxImages.length);
+  if (imageLightboxPrevious) imageLightboxPrevious.disabled = imageLightboxIndex === 0;
+  if (imageLightboxNext) {
+    imageLightboxNext.disabled = imageLightboxIndex === imageLightboxImages.length - 1;
+  }
+};
+
+const navigateImageLightbox = (direction) => {
+  const nextIndex = Math.max(
+    0,
+    Math.min(imageLightboxIndex + direction, imageLightboxImages.length - 1),
+  );
+  if (nextIndex === imageLightboxIndex) return;
+
+  const carousel = imageLightboxTrigger?.closest("[data-carousel]");
+  const carouselControl = carousel?.querySelector(
+    direction < 0 ? "[data-carousel-previous]" : "[data-carousel-next]",
+  );
+  carouselControl?.click();
+
+  imageLightboxIndex = nextIndex;
+  imageLightboxTrigger = imageLightboxImages[imageLightboxIndex];
+  renderImageLightbox();
+};
 
 const cleanUpImageLightbox = () => {
   document.body.classList.remove("lightbox-open");
@@ -173,6 +213,8 @@ const cleanUpImageLightbox = () => {
   }
 
   imageLightboxTrigger = null;
+  imageLightboxImages = [];
+  imageLightboxIndex = 0;
 };
 
 const closeImageLightbox = () => {
@@ -195,8 +237,11 @@ const openImageLightbox = (image) => {
   if (Date.now() - lastSwipe < 500) return;
 
   imageLightboxTrigger = image;
-  imageLightboxImage.src = image.currentSrc || image.src;
-  imageLightboxImage.alt = image.alt;
+  imageLightboxImages = Array.from(
+    carousel?.querySelectorAll("[data-carousel-slide] img") || [image],
+  );
+  imageLightboxIndex = Math.max(0, imageLightboxImages.indexOf(image));
+  renderImageLightbox();
   document.body.classList.add("lightbox-open");
 
   if (typeof imageLightbox.showModal === "function") {
@@ -225,14 +270,29 @@ if (imageLightbox && imageLightboxImage) {
   });
 
   imageLightboxClose?.addEventListener("click", closeImageLightbox);
+  imageLightboxPrevious?.addEventListener("click", () => navigateImageLightbox(-1));
+  imageLightboxNext?.addEventListener("click", () => navigateImageLightbox(1));
   imageLightboxImage.addEventListener("click", closeImageLightbox);
   imageLightbox.addEventListener("click", (event) => {
     if (event.target === imageLightbox) closeImageLightbox();
   });
   imageLightbox.addEventListener("close", cleanUpImageLightbox);
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape" || !imageLightbox.open) return;
-    event.preventDefault();
-    closeImageLightbox();
+    if (!imageLightbox.open) return;
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeImageLightbox();
+    }
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      navigateImageLightbox(-1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      navigateImageLightbox(1);
+    }
   });
 }

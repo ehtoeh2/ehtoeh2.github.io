@@ -3050,6 +3050,14 @@ h3 {
   padding-left: 12px;
 }
 
+.research-project-gallery--figure .carousel-slide--study-inset-all {
+  padding: 18px 20px;
+}
+
+.research-project-gallery--figure .carousel-slide--study-inset-horizontal {
+  padding-inline: 22px;
+}
+
 .research-project-gallery .carousel-slide img[role="button"] {
   cursor: zoom-in;
 }
@@ -3095,6 +3103,63 @@ body.lightbox-open {
   height: 100%;
   object-fit: contain;
   cursor: zoom-out;
+}
+
+.image-lightbox-control {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(9, 11, 11, 0.82);
+  color: #ffffff;
+  font: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.image-lightbox-control--previous {
+  left: 14px;
+}
+
+.image-lightbox-control--next {
+  right: 14px;
+}
+
+.image-lightbox-control:hover:not(:disabled),
+.image-lightbox-control:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.image-lightbox-control:disabled {
+  opacity: 0.24;
+  cursor: default;
+}
+
+.image-lightbox-status {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: rgba(9, 11, 11, 0.82);
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 760;
+  line-height: 1;
+}
+
+.image-lightbox.is-single .image-lightbox-control,
+.image-lightbox.is-single .image-lightbox-status {
+  display: none;
 }
 
 .image-lightbox-close {
@@ -3176,11 +3241,37 @@ body.lightbox-open {
 }
 
 @media (max-width: 560px) {
+  .research-project-gallery--figure .carousel-slide--study-inset-all {
+    padding: 12px 14px;
+  }
+
+  .research-project-gallery--figure .carousel-slide--study-inset-horizontal {
+    padding-inline: 14px;
+  }
+
   .image-lightbox {
     width: calc(100vw - 12px);
     height: calc(100vh - 12px);
     height: calc(100dvh - 12px);
     padding: 52px 10px 10px;
+  }
+
+  .image-lightbox-control {
+    width: 42px;
+    height: 42px;
+  }
+
+  .image-lightbox-control--previous {
+    left: 8px;
+  }
+
+  .image-lightbox-control--next {
+    right: 8px;
+  }
+
+  .image-lightbox-status {
+    right: 8px;
+    bottom: 8px;
   }
 
   .research-carousel-label {
