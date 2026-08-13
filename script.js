@@ -177,6 +177,10 @@ const renderImageLightbox = () => {
   imageLightboxImage.src = image.currentSrc || image.src;
   imageLightboxImage.alt = image.alt;
   imageLightbox.classList.toggle("is-single", imageLightboxImages.length <= 1);
+  imageLightbox.classList.toggle(
+    "has-light-image-background",
+    Boolean(image.closest(".research-project-gallery--lightbox-white")),
+  );
 
   if (imageLightboxCurrent) imageLightboxCurrent.textContent = String(imageLightboxIndex + 1);
   if (imageLightboxTotal) imageLightboxTotal.textContent = String(imageLightboxImages.length);
@@ -207,6 +211,7 @@ const navigateImageLightbox = (direction) => {
 const cleanUpImageLightbox = () => {
   document.body.classList.remove("lightbox-open");
   imageLightboxImage?.removeAttribute("src");
+  imageLightbox?.classList.remove("has-light-image-background");
 
   if (imageLightboxTrigger?.isConnected) {
     imageLightboxTrigger.focus({ preventScroll: true });
