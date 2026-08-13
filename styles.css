@@ -2461,6 +2461,10 @@ h3 {
   margin: 0 0 1em;
 }
 
+.research-project-copy h3 + .research-project-narrative {
+  margin-top: 0;
+}
+
 .research-program--kyunghee .research-project-narrative {
   margin-top: 0;
   font-size: 1rem;
