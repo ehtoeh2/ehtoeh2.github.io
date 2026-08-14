@@ -2853,6 +2853,16 @@ h3 {
   object-fit: contain;
 }
 
+.carousel-slide--portrait-zoom img {
+  object-fit: contain;
+  transform: scale(1.16);
+  transform-origin: center bottom;
+}
+
+.carousel-slide--focus-bottom img {
+  object-position: center bottom;
+}
+
 .carousel-control {
   position: absolute;
   top: 50%;
@@ -3000,14 +3010,6 @@ h3 {
 .beyond-item-visual {
   width: 100%;
   max-width: 480px;
-}
-
-.beyond-item--training .beyond-item-visual {
-  max-width: 420px;
-}
-
-.beyond-item--training .carousel-viewport {
-  aspect-ratio: 4 / 5;
 }
 
 .beyond-item--training .beyond-label {
