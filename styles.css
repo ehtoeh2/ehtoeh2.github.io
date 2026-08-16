@@ -2964,7 +2964,7 @@ h3 {
 }
 
 .beyond-origin-copy h2 {
-  max-width: 13ch;
+  max-width: none;
   margin-bottom: 22px;
   font-size: 2.45rem;
   line-height: 1.08;
@@ -3039,12 +3039,27 @@ h3 {
   line-height: 1.14;
 }
 
-.beyond-item-content > p:last-child {
+.beyond-item-content h3.beyond-item-title--single-line {
+  max-width: none;
+  font-size: 1.9rem;
+  white-space: nowrap;
+}
+
+.beyond-item-content > p:last-child,
+.beyond-prose {
   max-width: 620px;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.76;
+}
+
+.beyond-prose p {
+  margin-bottom: 14px;
+}
+
+.beyond-prose p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 860px) {
@@ -3125,7 +3140,7 @@ h3 {
   }
 
   .beyond-origin-copy h2 {
-    font-size: 2rem;
+    font-size: 1.72rem;
   }
 
   .beyond-origin-copy > p:last-child {
@@ -3153,7 +3168,13 @@ h3 {
     font-size: 1.72rem;
   }
 
-  .beyond-item-content > p:last-child {
+  .beyond-item-content h3.beyond-item-title--single-line {
+    font-size: 1.72rem;
+    white-space: normal;
+  }
+
+  .beyond-item-content > p:last-child,
+  .beyond-prose {
     font-size: 0.96rem;
   }
 }
