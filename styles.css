@@ -2761,6 +2761,15 @@ h3 {
     display: block;
   }
 
+  .research-project-copy h3.research-project-title--single-line,
+  .research-project-copy h3.research-project-title--fixed-lines {
+    max-width: none;
+  }
+
+  .research-project-copy h3.research-project-title--single-line {
+    white-space: nowrap;
+  }
+
   #methods-heading {
     max-width: 1040px;
     font-size: 3rem;
